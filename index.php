@@ -19,6 +19,10 @@ if (session_status() == PHP_SESSION_NONE) {
     echo "In Session";
 }
 
+if( $_SESSION['username'] == NULL)
+{
+     include('loginview.php');
+}
 
 //phpinfo();
 try {
