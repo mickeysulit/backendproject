@@ -4,7 +4,20 @@ require 'mysql.php';
 echo "password" . $_POST['password_1'];
 echo "password 2" . $_POST['password_2'];
 
-if ($_POST['password_1'] == $_POST['password_2']) 
+// set the data to a temporary variable.  Have to strip off the spaces
+// to make sure they match
+$username = trim($_POST['username']);
+$fname = trim($_POST['fname']);
+$lname = trim($_POST['lname']);
+$password_1 = trim($_POST['password_1']);
+$password_2 = trim($_POST['password_2']); 
+
+if (($password_1 == $password_2) && 
+    ($username <> '' &&
+     $fname <> '' &&
+     $lname <> '' &&
+     $password_1 <> ''
+    ) ) 
 {
     try {
 
@@ -37,6 +50,11 @@ if ($_POST['password_1'] == $_POST['password_2'])
     }
     
 } else {
-    include register.php;
+    // set the values for the field
+    $username = $_POST['username'];
+    $fname = $_POST['fname'];
+    $lname = $_POST['lname'];
+    
+    include('register.php');
 }
 ?>
