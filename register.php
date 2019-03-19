@@ -10,7 +10,7 @@
   	<h2>Register</h2>
   </div>
 	
-  <form method="post" action="register.php">
+  <form method="post" action="adduser.php">
   	<?php include('errors.php'); ?>
   	<div class="input-group">
   	  <label>Username</label>
@@ -26,11 +26,11 @@
   	</div>
   	<div class="input-group">
   	  <label>First Name</label>
-  	  <input type="text" name="fname" value="<?php echo $email; ?>">
+  	  <input type="text" name="fname" value="<?php echo $fname; ?>">
   	</div>  	
       <div class="input-group">
   	  <label>Last Name</label>
-  	  <input type="text" name="lname" value="<?php echo $email; ?>">
+  	  <input type="text" name="lname" value="<?php echo $lname; ?>">
   	</div>
   	<div class="input-group">
   	  <button type="submit" class="btn" name="reg_user">Register</button>
