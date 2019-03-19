@@ -2,19 +2,17 @@
 require 'mysql.php';
 
 //phpinfo();
-
-
 try {
-        // FIRST: Connect to the database
+        // use this command to connect to the database
         $connection = new PDO($mydsn, $myusrnme, $mypsswrd, $options);
 		
-        // SECOND: Create the SQL 
+        // Put the command sting to be executed mysql
         $sql = "SELECT * FROM users";
-        // THIRD: Prepare the SQL
+        // Set the statement and execute the statment
         $statement = $connection->prepare($sql);
         $statement->execute();
         
-        // FOURTH: Put it into a $result object that we can access in the page
+        // get the result
         $result = $statement->fetchAll();
 
     print_r($result);
