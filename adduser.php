@@ -1,9 +1,6 @@
 <?php
 require 'mysql.php';
 
-echo "password" . $_POST['password_1'];
-echo "password 2" . $_POST['password_2'];
-
 // set the data to a temporary variable.  Have to strip off the spaces
 // to make sure they match
 $username = trim($_POST['username']);
@@ -43,6 +40,7 @@ if (($password_1 == $password_2) &&
         //$result = $statement->fetchAll();
 
         //print_r($result);
+        include('index.php');
 	} catch(PDOException $error) {
         // if there is an error, tell us what it is
 		echo $sql . "<br>" . $error->getMessage();
@@ -55,6 +53,9 @@ if (($password_1 == $password_2) &&
     $fname = $_POST['fname'];
     $lname = $_POST['lname'];
     
+    //header("Location:register.php"); 
+    //exit; // 
+
     include('register.php');
 }
 ?>
