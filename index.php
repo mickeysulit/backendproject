@@ -19,29 +19,12 @@ if (session_status() == PHP_SESSION_NONE) {
     echo "In Session";
 }
 
-if( $_SESSION['username'] == NULL)
+if( $_SESSION['username'] != NULL)
 {
+    // found out I can include another file and show this to the browser
      include('loginview.php');
+} else {
+     include('homeview.php');
 }
 
-//phpinfo();
-try {
-        // use this command to connect to the database
-        $connection = new PDO($mydsn, $myusrnme, $mypsswrd, $options);
-		
-        // Put the command sting to be executed mysql
-        $sql = "SELECT * FROM users";
-        // Set the statement and execute the statment
-        $statement = $connection->prepare($sql);
-        $statement->execute();
-        
-        // get the result
-        $result = $statement->fetchAll();
-
-    print_r($result);
-	} catch(PDOException $error) {
-        // if there is an error, tell us what it is
-		echo $sql . "<br>" . $error->getMessage();
-	}	
- 
 ?>
