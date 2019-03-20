@@ -5,7 +5,6 @@ require 'mysql.php';
 //echo PHP_SESSION_NONE;
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
-    echo session_status();
     if($_SESSION['username']==NULL){
     //haven't log in
 //       echo "You haven't log in";
@@ -16,7 +15,7 @@ if (session_status() == PHP_SESSION_NONE) {
 //        $_SESSION['username'] = NULL;
     }
 } else {
-    echo "In Session";
+
 }
 
 if( $_SESSION['username'] == NULL)

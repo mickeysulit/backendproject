@@ -20,7 +20,7 @@ try {
         // get the result
        // $result = $statement->fetchAll();
         echo "<form>";
-        echo "<table border='1'><tr><th>activity</th><th>Description</th><th></th></tr>";
+        echo "<table border='0'><tr><th>activity</th><th>Description</th><th></th></tr>";
 
         while ($row = $statement->fetch(PDO::FETCH_NUM)) {
             echo "<tr>";

@@ -37,6 +37,8 @@ if (($password <> '') && (isset($_POST['login_user'])))
     } catch(PDOException $error) {
         
     }
+} else {
+    include('index.php');
 }
 
 ?>
