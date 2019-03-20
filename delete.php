@@ -1,4 +1,7 @@
 <?php
+if (session_status() == PHP_SESSION_NONE)
+    session_start();
+
 require 'mysql.php';
 
 if (isset($_GET["id"])) {

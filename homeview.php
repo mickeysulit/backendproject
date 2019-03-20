@@ -10,7 +10,7 @@ try {
         $connection = new PDO($mydsn, $myusrnme, $mypsswrd, $options);
 		
         // Put the command sting to be executed mysql
-        $sql = "SELECT * FROM todo";
+        $sql = "SELECT * FROM todo where userid = ".$_SESSION['usersid'];
         // Set the statement and execute the statment
         $statement = $connection->prepare($sql);
         $statement->execute();

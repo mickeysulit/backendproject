@@ -1,32 +1,37 @@
 <?php
+if (session_status() == PHP_SESSION_NONE)
+    session_start();
+
 require 'mysql.php';
 
-$todoid = $_POST['todoid'];
+$id = $_POST['todoid'];
 $activity = trim($_POST['activity']);
 $description = trim($_POST['description']);
 try {
 
-        // use this command to connect to the database
-        $connection = new PDO($mydsn, $myusrnme, $mypsswrd, $options);
+        if ($activity <> '') {
+            $connection = new PDO($mydsn, $myusrnme, $mypsswrd, $options);
     
-        //get the data from the form
-        $newtodo = array( 
-            "todoid" => $todoid, 
-            "activity" => $activity,
-            "description" => $description,
-        );
+            //get the data from the form
+            $newtodo = array( 
+                "todoid" => $id, 
+                "activity" => $activity,
+                "description" => $description,
+            );
 		
-        // Put the command sting to be executed mysql
-        $sql = "UPDATE `todo` 
+            $sql = "UPDATE `todo` 
                 SET activity = :activity, 
                     description = :description 
                 WHERE todoid = :todoid";
-        // Set the statement and execute the statment
-        $statement = $connection->prepare($sql);
-        $statement->execute($newtodo);
-        $activity = '';
-        $description = '';
-        include('homeview.php');
+ 
+            $statement = $connection->prepare($sql);
+            $statement->execute($newtodo);
+            $activity = '';
+            $description = '';
+            include('homeview.php');
+        } else {
+            include('editview.php');
+        }
         
         // get the result
         //$result = $statement->fetchAll();

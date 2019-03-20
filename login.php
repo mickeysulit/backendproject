@@ -30,7 +30,7 @@ if (($password <> '') && (isset($_POST['login_user'])))
              
          }
         if ( $_SESSION['username'] ==$username ){
-            include('homeview.php');           
+           include('homeview.php');           
         } else {
             include('index.php');
         }

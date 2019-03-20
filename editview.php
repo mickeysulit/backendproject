@@ -1,7 +1,9 @@
 <?php
-require 'mysql.php';
 if (session_status() == PHP_SESSION_NONE)
     session_start();
+
+require 'mysql.php';
+
 
 echo "Hi " .$_SESSION['fname']. "!!";
 echo "  <a  href='logout.php'.>logout</a>";
@@ -13,12 +15,9 @@ if (isset($_GET["id"])) {
 }
 
 try {
-        // use this command to connect to the database
         $connection = new PDO($mydsn, $myusrnme, $mypsswrd, $options);
 		
-        // Put the command sting to be executed mysql
-        $sql = "SELECT * FROM todo";
-        // Set the statement and execute the statment
+        $sql = "SELECT * FROM todo where userid = ".$_SESSION['usersid'];
         $statement = $connection->prepare($sql);
         $statement->execute();
         

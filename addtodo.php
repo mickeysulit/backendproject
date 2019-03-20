@@ -1,4 +1,8 @@
 <?php
+
+if (session_status() == PHP_SESSION_NONE)
+    session_start();
+
 require 'mysql.php';
 
 $activity = trim($_POST['activity']);
@@ -12,7 +16,7 @@ try {
     
             //get the data from the form
             $newtodo = array( 
-            "userid" => 1, 
+            "userid" => $_SESSION['usersid'], 
             "activity" => $activity,
             "description" => $description,
             );
@@ -28,14 +32,10 @@ try {
         } else {
             include('homeview.php');
         } 
-        
-        // get the result
-        //$result = $statement->fetchAll();
-
-        //print_r($result);
-	} catch(PDOException $error) {
+ 	} catch(PDOException $error) {
         // if there is an error, tell us what it is
 		echo $sql . "<br>" . $error->getMessage();
+        include('homeview.php');
    
    }
 ?>
