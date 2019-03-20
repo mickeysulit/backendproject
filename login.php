@@ -1,4 +1,6 @@
 <?php 
+if (session_status() == PHP_SESSION_NONE)
+    session_start();
 
 require('mysql.php');
 
@@ -16,14 +18,22 @@ if (($password <> '') && (isset($_POST['login_user'])))
             "password" => $password,
         );
       
-         $sql = "SELECT * FROM users where username = :username and password = :password ";
+         $sql = "SELECT usersid FROM users where username = :username and password = :password ";
         
          $statement = $connection->prepare($sql);
          $statement->execute($user_info);
         
          $result = $statement->fetchAll();
+        
+        if ($statement->rowCount() > 0) 
+        {
+            echo "save session";
+            $_SESSION['username'] = $username;
+            $_SESSION['usersid'] = 1;
+        }
  
-         print_r($result);
+         echo $statement->rowCount();
+        include('homeview.php');
     } catch(PDOException $error) {
         
     }
