@@ -1,5 +1,10 @@
 <?php
 require 'mysql.php';
+if (session_status() == PHP_SESSION_NONE)
+    session_start();
+
+echo "Hi " .$_SESSION['fname']. "!!";
+echo "  <a  href='logout.php'.>logout</a>";
 
 if (isset($_GET["id"])) {
     $id = $_GET["id"];

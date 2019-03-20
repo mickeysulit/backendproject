@@ -1,5 +1,10 @@
 <?php
+if (session_status() == PHP_SESSION_NONE)
+    session_start();
+
+echo "Hi " .$_SESSION['fname']. "!!";
 echo "  <a  href='logout.php'.>logout</a>";
+
 try {
         // use this command to connect to the database
         $connection = new PDO($mydsn, $myusrnme, $mypsswrd, $options);
@@ -32,7 +37,6 @@ try {
 		echo $sql . "<br>" . $error->getMessage();
 	}	
  ?>
-  <a  href='logout.php'.>logout</a>
   <form method="post" action="addtodo.php">
   	<?php include('errors.php'); ?>
   	<div class="input-group">

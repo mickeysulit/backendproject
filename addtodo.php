@@ -5,25 +5,29 @@ $activity = trim($_POST['activity']);
 $description = trim($_POST['description']);
 
 try {
-
-        // use this command to connect to the database
-        $connection = new PDO($mydsn, $myusrnme, $mypsswrd, $options);
+        // activity should not be blank to be added
+        if ( $activity <> '' )  {
+            // use this command to connect to the database
+            $connection = new PDO($mydsn, $myusrnme, $mypsswrd, $options);
     
-        //get the data from the form
-        $newtodo = array( 
+            //get the data from the form
+            $newtodo = array( 
             "userid" => 1, 
             "activity" => $activity,
             "description" => $description,
-        );
+            );
 		
-        // Put the command sting to be executed mysql
-        $sql = "INSERT INTO todo (userid, activity, description) VALUES (:userid, :activity, :description)";
-        // Set the statement and execute the statment
-        $statement = $connection->prepare($sql);
-        $statement->execute($newtodo);
-        $activity = '';
-        $description = '';
-        include('homeview.php');
+            // Put the command sting to be executed mysql
+            $sql = "INSERT INTO todo (userid, activity, description) VALUES (:userid, :activity, :description)";
+            // Set the statement and execute the statment
+            $statement = $connection->prepare($sql);
+            $statement->execute($newtodo);
+            $activity = '';
+            $description = '';
+            include('homeview.php');
+        } else {
+            include('homeview.php');
+        } 
         
         // get the result
         //$result = $statement->fetchAll();

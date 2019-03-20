@@ -18,22 +18,23 @@ if (($password <> '') && (isset($_POST['login_user'])))
             "password" => $password,
         );
       
-         $sql = "SELECT usersid FROM users where username = :username and password = :password ";
+         $sql = "SELECT usersid, fname FROM users where username = :username and password = :password ";
         
          $statement = $connection->prepare($sql);
          $statement->execute($user_info);
-        
-         $result = $statement->fetchAll();
-        
-        if ($statement->rowCount() > 0) 
-        {
-            echo "save session";
+         
+         while ($row = $statement->fetch(PDO::FETCH_NUM)) {
             $_SESSION['username'] = $username;
-            $_SESSION['usersid'] = 1;
+            $_SESSION['usersid'] = $row[0];
+            $_SESSION['fname'] = $row[1];
+             
+         }
+        if ( $_SESSION['username'] ==$username ){
+            include('homeview.php');           
+        } else {
+            include('index.php');
         }
- 
-         echo $statement->rowCount();
-        include('homeview.php');
+
     } catch(PDOException $error) {
         
     }
