@@ -1,5 +1,11 @@
 <?php
+require 'mysql.php';
 
+if (isset($_GET["id"])) {
+    $id = $_GET["id"];
+    $activity = $_GET["activity"];
+    $description = $_GET["description"];
+}
 try {
         // use this command to connect to the database
         $connection = new PDO($mydsn, $myusrnme, $mypsswrd, $options);
@@ -32,7 +38,7 @@ try {
 		echo $sql . "<br>" . $error->getMessage();
 	}	
  ?>
-  <form method="post" action="addtodo.php">
+  <form method="post" action="update.php">
   	<?php include('errors.php'); ?>
   	<div class="input-group">
   	  <label>Activity</label>
@@ -43,6 +49,6 @@ try {
   	  <input type="text" name="description" value="<?php echo $description; ?>">
   	</div>
   	<div class="input-group">
-  	  <button type="submit" class="btn" name="add_todo">add</button>
+  	  <button type="submit" class="btn" name="add_todo">update</button>
   	</div>
 </form>
