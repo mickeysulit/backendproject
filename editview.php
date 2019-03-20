@@ -6,6 +6,7 @@ if (isset($_GET["id"])) {
     $activity = $_GET["activity"];
     $description = $_GET["description"];
 }
+
 try {
         // use this command to connect to the database
         $connection = new PDO($mydsn, $myusrnme, $mypsswrd, $options);
@@ -41,6 +42,7 @@ try {
   <form method="post" action="update.php">
   	<?php include('errors.php'); ?>
   	<div class="input-group">
+      <input type="hidden" name="todoid" value="<?php echo $id; ?>">
   	  <label>Activity</label>
   	  <input type="text" name="activity" value="<?php echo $activity; ?>">
   	</div>
