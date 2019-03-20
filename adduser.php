@@ -48,14 +48,10 @@ if (($password_1 == $password_2) &&
     }
     
 } else {
-    // set the values for the field
-    $username = $_POST['username'];
-    $fname = $_POST['fname'];
-    $lname = $_POST['lname'];
-    
+    // set the values for the field   
     //header("Location:register.php"); 
     //exit; // 
-
+    $error = "user not created";
     include('register.php');
 }
 ?>

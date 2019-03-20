@@ -9,7 +9,8 @@
   <div class="header">
   	<h2>Register</h2>
   </div>
-	
+ <!-- add error  -->
+  <div class="error"> <?php echo $error; ?> </div>
   <form method="post" action="adduser.php">
   	<?php include('errors.php'); ?>
   	<div class="input-group">

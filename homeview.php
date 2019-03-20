@@ -12,6 +12,7 @@ try {
         
         // get the result
         $result = $statement->fetchAll();
+    
 
     print_r($result);
 	} catch(PDOException $error) {
