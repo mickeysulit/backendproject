@@ -3,7 +3,12 @@
 if (session_status() == PHP_SESSION_NONE)
     session_start();
 
-$username = $_SESSION['username'];
+if(isset($_SESSION['username']) && !empty($_SESSION['username']))  {
+    $username = $_SESSION['username'];
+} else {
+   $username = '';
+}
+
 ?>
 <!DOCTYPE html>
 <html>

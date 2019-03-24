@@ -44,7 +44,6 @@ try {
 	}	
  ?>
   <form method="post" action="update.php">
-  	<?php include('errors.php'); ?>
   	<div class="input-group">
       <input type="hidden" name="todoid" value="<?php echo $id; ?>">
   	  <label>Activity</label>

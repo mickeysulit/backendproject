@@ -1,3 +1,32 @@
+<?php
+
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+
+$username = '';
+$fname = '';
+$lname = '';
+$error = '';
+
+if(isset($_SESSION['username']) && !empty($_SESSION['username']))  {
+   $username = $_SESSION['username'];
+}
+
+if(isset($_SESSION['fname']) && !empty($_SESSION['fname']))  {
+   $fname = $_SESSION['fname'];
+}
+
+if(isset($_SESSION['lname']) && !empty($_SESSION['lname']))  {
+   $lname = $_SESSION['lname'];
+}
+
+if(isset($_SESSION['error']) && !empty($_SESSION['error']))  {
+   $error = $_SESSION['error'];
+}
+
+ 
+?>
 <!DOCTYPE html>
 <html>
 <head>
