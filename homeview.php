@@ -37,7 +37,7 @@ try {
         // get the result
        // $result = $statement->fetchAll();
         echo "<form>";
-        echo "<table border='0'><tr><th>activity</th><th>Description</th><th></th></tr>";
+        echo "<table border='0'><tr><th>To Do</th><th>Due Date</th><th></th></tr>";
 
         while ($row = $statement->fetch(PDO::FETCH_NUM)) {
             echo "<tr>";
@@ -56,11 +56,11 @@ try {
  ?>
   <form method="post" action="addtodo.php">
   	<div class="input-group">
-  	  <label>Activity</label>
+  	  <label>To Do</label>
   	  <input type="text" name="activity" value="<?php echo $activity; ?>">
   	</div>
   	<div class="input-group">
-  	  <label>Description</label>
+  	  <label>Due Date</label>
   	  <input type="text" name="description" value="<?php echo $description; ?>">
   	</div>
   	<div class="input-group">
