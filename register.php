@@ -1,4 +1,3 @@
-<?php include('server.php') ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,8 +11,7 @@
  <!-- add error  -->
   <div class="error"> <?php echo $error; ?> </div>
   <form method="post" action="adduser.php">
-  	<?php include('errors.php'); ?>
-  	<div class="input-group">
+   	<div class="input-group">
   	  <label>Username</label>
   	  <input type="text" name="username" value="<?php echo $username; ?>">
   	</div>
