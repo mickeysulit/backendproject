@@ -1,4 +1,12 @@
-<?php
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Registration system PHP and MySQL</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+
+    <?php
 if (session_status() == PHP_SESSION_NONE)
     session_start();
 
@@ -57,3 +65,5 @@ try {
   	  <button type="submit" class="btn" name="add_todo">update</button>
   	</div>
 </form>
+</body>
+</html>
