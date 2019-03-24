@@ -1,6 +1,7 @@
 <?php
 
 // setup the connection to msyql database
+// user name and password for the mysql server
 
     $myserver = "localhost";
     $myusrnme = "root";
