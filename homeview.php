@@ -13,6 +13,10 @@ if (session_status() == PHP_SESSION_NONE)
 echo "Hi " .$_SESSION['fname']. "!!";
 echo "  <a  href='logout.php'.>logout</a>";
 
+    
+$activity = $_SESSION['activity'];
+$description = $_SESSION['description'];
+
 try {
         // use this command to connect to the database
         $connection = new PDO($mydsn, $myusrnme, $mypsswrd, $options);
@@ -41,12 +45,9 @@ try {
         echo "</table>";
         echo "</form>";
 	} catch(PDOException $error) {
-        // if there is an error, tell us what it is
-		echo $sql . "<br>" . $error->getMessage();
 	}	
  ?>
   <form method="post" action="addtodo.php">
-  	<?php include('errors.php'); ?>
   	<div class="input-group">
   	  <label>Activity</label>
   	  <input type="text" name="activity" value="<?php echo $activity; ?>">

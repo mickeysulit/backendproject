@@ -34,7 +34,9 @@ try {
         } 
  	} catch(PDOException $error) {
         // if there is an error, tell us what it is
-		echo $sql . "<br>" . $error->getMessage();
+        $_SESSION['activity'] = $activity;
+        $_SESSION['description'] = $description;
+		
         include('homeview.php');
    
    }
