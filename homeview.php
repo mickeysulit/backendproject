@@ -13,9 +13,16 @@ if (session_status() == PHP_SESSION_NONE)
 echo "Hi " .$_SESSION['fname']. "!!";
 echo "  <a  href='logout.php'.>logout</a>";
 
-    
-$activity = $_SESSION['activity'];
-$description = $_SESSION['description'];
+if(isset($_SESSION['activity']) && !empty($_SESSION['activity']))  {
+    $activity = $_SESSION['activity'];
+} else {
+    $activity = '';
+}
+if(isset($_SESSION['description']) && !empty($_SESSION['description']))  {
+    $description = $_SESSION['description'];
+} else {
+    $description = '';
+}
 
 try {
         // use this command to connect to the database
