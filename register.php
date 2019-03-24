@@ -38,7 +38,6 @@ if(isset($_SESSION['error']) && !empty($_SESSION['error']))  {
   	<h2>Register</h2>
   </div>
  <!-- add error  -->
-  <div class="error"> <?php echo $error; ?> </div>
   <form method="post" action="adduser.php">
    	<div class="input-group">
   	  <label>Username</label>
