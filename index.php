@@ -20,6 +20,7 @@ if (session_status() == PHP_SESSION_NONE) {
 
 if( $_SESSION['username'] == NULL)
 {    // found out I can include another file and show this to the browser
+    $username = '';
      include('loginview.php');
 } else {
      include('homeview.php');

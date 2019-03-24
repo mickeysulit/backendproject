@@ -1,5 +1,10 @@
 <?php include('mysql.php') ?>
+<?php
+if (session_status() == PHP_SESSION_NONE)
+    session_start();
 
+$username = $_SESSION['username'];
+?>
 <!DOCTYPE html>
 <html>
 <head>
