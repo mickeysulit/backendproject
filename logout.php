@@ -2,9 +2,10 @@
 
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
-    $_SESSION['username']=NULL;
 
 }
+session_destroy();
+
 include('index.php');
  
 ?>
