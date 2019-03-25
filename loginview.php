@@ -34,7 +34,7 @@ if(isset($_SESSION['username']) && !empty($_SESSION['username']))  {
   		<button type="submit" class="btn" name="login_user">Login</button>
   	</div>
   	<p>
-  		Not yet a signed up? <a href="register.php">Register</a>
+  		Not yet registered? <a href="register.php">Register</a>
   	</p>
   </form>
 </body>
