@@ -25,20 +25,17 @@ if(isset($_SESSION['description']) && !empty($_SESSION['description']))  {
 }
 
 try {
-        // use this command to connect to the database
-        $connection = new PDO($mydsn, $myusrnme, $mypsswrd, $options);
-		
-        // Put the command sting to be executed mysql
+        //connect to the db mysql
+        $conn = new PDO($mydsn, $myusrnme, $mypsswrd, $options);
+		// create the sql with userid 
         $sql = "SELECT * FROM todo where userid = ".$_SESSION['usersid'];
-        // Set the statement and execute the statment
-        $statement = $connection->prepare($sql);
+        
+        $statement = $conn->prepare($sql);
         $statement->execute();
         
-        // get the result
-       // $result = $statement->fetchAll();
         echo "<form>";
         echo "<table border='0'><tr><th>To Do</th><th>Due Date</th><th></th></tr>";
-
+        //iterate through the return from the call
         while ($row = $statement->fetch(PDO::FETCH_NUM)) {
             echo "<tr>";
             echo "<td>" . $row[2] . "</td>";

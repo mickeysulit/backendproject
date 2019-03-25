@@ -11,8 +11,8 @@ $description = trim($_POST['description']);
 try {
         // activity should not be blank to be added
         if ( $activity <> '' )  {
-            // use this command to connect to the database
-            $connection = new PDO($mydsn, $myusrnme, $mypsswrd, $options);
+            //conn to the db mysql
+            $conn = new PDO($mydsn, $myusrnme, $mypsswrd, $options);
     
             //get the data from the form
             $newtodo = array( 
@@ -21,10 +21,9 @@ try {
             "description" => $description,
             );
 		
-            // Put the command sting to be executed mysql
+            // build the sql string
             $sql = "INSERT INTO todo (userid, activity, description) VALUES (:userid, :activity, :description)";
-            // Set the statement and execute the statment
-            $statement = $connection->prepare($sql);
+            $statement = $conn->prepare($sql);
             $statement->execute($newtodo);
             $activity = '';
             $description = '';
@@ -33,7 +32,7 @@ try {
             include('homeview.php');
         } 
  	} catch(PDOException $error) {
-        // if there is an error, tell us what it is
+        
         $_SESSION['activity'] = $activity;
         $_SESSION['description'] = $description;
 		

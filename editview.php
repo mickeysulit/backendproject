@@ -23,14 +23,12 @@ if (isset($_GET["id"])) {
 }
 
 try {
-        $connection = new PDO($mydsn, $myusrnme, $mypsswrd, $options);
+        $conn = new PDO($mydsn, $myusrnme, $mypsswrd, $options);
 		
         $sql = "SELECT * FROM todo where userid = ".$_SESSION['usersid'];
-        $statement = $connection->prepare($sql);
+        $statement = $conn->prepare($sql);
         $statement->execute();
         
-        // get the result
-       // $result = $statement->fetchAll();
         echo "<form>";
         echo "<table border='0'><tr><th>To Do</th><th>Due Date</th><th></th></tr>";
 
@@ -40,16 +38,12 @@ try {
             echo "<td>" . $row[3] . "</td>";
             echo "<td><a href='delete.php?id=".$row[0]."'>delete</a>&nbsp";
             echo "<a href='editview.php?id=".$row[0]."&activity=".$row[2]."&description=".$row[3]."'>edit</a> </td>";
-            //echo "<td><input type='radio' name='q1' value=".$row[0]."/></td>";
             echo "</tr>";            
-            //echo "<p>$row[0] $row[1] $row[2] </p>";
         }
         echo "</table>";
         echo "</form>";
 	} catch(PDOException $error) {
-        // if there is an error, tell us what it is
-		echo $sql . "<br>" . $error->getMessage();
-	}	
+ 	}	
  ?>
   <form method="post" action="update.php">
   	<div class="input-group">

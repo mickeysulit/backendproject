@@ -10,7 +10,7 @@ $description = trim($_POST['description']);
 try {
 
         if ($activity <> '') {
-            $connection = new PDO($mydsn, $myusrnme, $mypsswrd, $options);
+            $conn = new PDO($mydsn, $myusrnme, $mypsswrd, $options);
     
             //get the data from the form
             $newtodo = array( 
@@ -24,7 +24,7 @@ try {
                     description = :description 
                 WHERE todoid = :todoid";
  
-            $statement = $connection->prepare($sql);
+            $statement = $conn->prepare($sql);
             $statement->execute($newtodo);
             $activity = '';
             $description = '';
@@ -38,7 +38,7 @@ try {
 
         //print_r($result);
 } catch(PDOException $error) {
-        // if there is an error, tell us what it is
-		echo $sql . "<br>" . $error->getMessage();
+  include('editview.php');
+   
 }
 ?>
