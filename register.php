@@ -63,7 +63,7 @@ if(isset($_SESSION['error']) && !empty($_SESSION['error']))  {
   	  <button type="submit" class="btn" name="reg_user">Register</button>
   	</div>
   	<p>
-  		Already a member? <a href="index.php">Sign in</a>
+  		Already registered? <a href="index.php">Sign in</a>
   	</p>
   </form>
 </body>
