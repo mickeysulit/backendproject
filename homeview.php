@@ -13,6 +13,7 @@ if (session_status() == PHP_SESSION_NONE)
 echo "Hi " .$_SESSION['fname']. "!!";
 echo "  <a  href='logout.php'.>logout</a>";
 
+// Set up session variables 
 if(isset($_SESSION['activity']) && !empty($_SESSION['activity']))  {
     $activity = $_SESSION['activity'];
 } else {
